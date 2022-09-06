@@ -1,9 +1,8 @@
-node_modules
+node_modules/
 .env
-DS_Store
+.DS_Store
 .eslintcache
 .eslint-release-info.json
 .temp-eslintcache
-.eslintrc.js
-package-lock.json
-config
+.npm
+
