@@ -1,9 +1,11 @@
-const path = require('path');
-const express = require('express');
-const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
-
+const path = require("path");
+const express = require("express");
+const routes = require("./controllers");
+const session = require("express-session");
+const exphbs = require("express-handlebars");
+const helpers = require("./utils/helper");
+const sequelize = require("./config/connection");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const sess = {
     secret: "Super secret secret",
     cookie: {
-        maxAge: 3600000,
+        maxAge: 600000,
         httpOnly: true,
         secure: false,
         sameSite: "strict",
