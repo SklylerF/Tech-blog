@@ -14,6 +14,10 @@ comment.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: "user",
+                key: "id"
+            }
 
         },
         comment: {
